@@ -33,5 +33,5 @@ if (!dbUser) {
     });
 }
 
-return NextResponse.redirect("http://localhost:3000/");
+return NextResponse.redirect("https://globo-booking-app.vercel.app");
 }

@@ -1,6 +1,7 @@
 import { ListingCard } from "@/components/ui/ListingCard";
 import prisma from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { unstable_noStore as noStore } from "next/cache";
 import { Suspense } from "react";
 import { MapFilterItems } from "./components/MapFilterItems";
 import { NoItems } from "./components/NoItems";
@@ -19,6 +20,7 @@ async function getData({
     bathroom?: string;
   };
 }){
+  noStore();
   const data = await prisma.home.findMany({
     where:{
       addedCategory:true,

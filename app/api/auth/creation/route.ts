@@ -33,5 +33,5 @@ if (!dbUser) {
     });
 }
 
-return NextResponse.redirect("https://globo-booking-ihmnu15hp-rejenos-projects.vercel.app");
+return NextResponse.redirect("https://globo-booking-app.vercel.app");
 }

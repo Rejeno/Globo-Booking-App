@@ -1,20 +1,19 @@
-import Image from "next/image"
-import Link from "next/link"
-import logo from '../../public/logo2.png'
-import { SearchModalComponent } from "./Searchcomponents"
-import { UserNav } from "./UserNav"
+import Image from "next/image";
+import Link from "next/link";
+import logo from '../../public/logo2.png';
+import { SearchModalComponent } from "./Searchcomponents";
+import { UserNav } from "./UserNav";
 
-export function Navbar(){
-    return(
-        <nav className="w-full border-b fixed top-0 bg-white z-10">
+export function Navbar() {
+    return (
+        <nav className="z-20 w-full border-b fixed top-0 bg-white dark:bg-background z-10">
             <div className="flex items-center justify-between container mx-auto px-5 lg:px-10 py-5">
                 <Link href="/">
-                    <Image src={logo} alt="logo" className="w-32 hidden lg:block" />
-                    <Image src={logo} alt="mobilelogo" className="block lg:hidden w-12" />
+                        <Image src={logo} alt="logo" width={128} height={64} className="hidden lg:block" />
                 </Link>
                 <SearchModalComponent />
                 <UserNav />
             </div>
         </nav>
-    )
+    );
 }

@@ -71,7 +71,7 @@ export function ListingCard({
                     {description}
                 </p>
                 <p className="pl-1 pt-2 text-muted-foreground">
-                    <span className=" font-medium text-black pr-2">${price}</span>Night
+                    <span className="dark:text-white font-medium text-black pr-2">${price}</span>Night
                 </p>
             </Link>
         

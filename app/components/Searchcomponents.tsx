@@ -32,7 +32,7 @@ export function SearchModalComponent(){
         <Dialog>
             <DialogTrigger asChild>
             <div className="flex items-center justify-between rounded-full py-1 sm:py-2 px-2 sm:px-4 border cursor-pointer">
-                <div className="flex flex-1 justify-center divide-x sm:justify-start">
+                <div className="text-bold flex flex-1 justify-center divide-x sm:justify-start">
                     <p className="text-xs sm:text-base px-2 ">Anywhere</p>
                     <p className="text-xs sm:text-base px-2 ">Any Week</p>
                     <p className="text-xs sm:text-base px-2">Add Guests</p>

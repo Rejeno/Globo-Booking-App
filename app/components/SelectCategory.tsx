@@ -26,7 +26,7 @@ export function SelectCategory() {
                                 alt={item.name}
                                 height={32}
                                 width={32}
-                                className="w-8 h-8"
+                                className="dark:text-white w-8 h-8"
                             />
                             <h3 className="font-medium text-sm sm:text-base">
                                 {item.title}

@@ -22,7 +22,7 @@ export async function UserNav (){
         <div>
         <DropdownMenu>
             <DropdownMenuTrigger>
-            <div className="rounded-full border px-2 py-2 lg:px-4 lg:py-2 md:rounded-full rounded-lg flex items-center gap-x-3">
+            <div className="hover:shadow-md dark:hover:shadow-white rounded-full border px-2 py-2 lg:px-4 lg:py-2 md:rounded-full rounded-lg flex items-center gap-x-3">
                 <MenuIcon className="w-6 h-6 lg:w-5- lg:h-5"/>
 
                 <img
@@ -35,6 +35,12 @@ export async function UserNav (){
         <DropdownMenuContent align="end" className="w-[200px]">
             {user ? (
                 <>
+                    <DropdownMenuItem>
+                    <Link href="/" className="w-full">
+                        Home
+                    </Link>
+                    </DropdownMenuItem>
+                    
                     <DropdownMenuItem>
                     <form action={createHomewithid} className="w-full">
                     <button type="submit" className="w-full text-start">

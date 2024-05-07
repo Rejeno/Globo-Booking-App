@@ -34,12 +34,13 @@ export function ListingCard({
     const country = getCountryByValue(location);
 
     return(
-        <div className="flex flex-col ">
-
+        <div className="flex flex-col">
             <div className="relative h-72">
+            <Link href={`/home/${homeId}`} className="mt-1">
                 <Image src={`https://zsjmcggrnqxrdypgvfug.supabase.co/storage/v1/object/public/images/${imagePath}`} 
-                alt="Image of the House" fill className="rounded-lg h-full object-cover"
+                alt="Image of the House" fill className="rounded-lg h-full object-cover cursor-pointer hover:scale-105 transition"
                 />
+            </Link>
 
                 {userId && (
                     <div className="z-10 absolute top-2 right-2">

@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { Link } from "lucide-react";
 import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
+
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
 async function getData(homeid: string) {
     noStore();
@@ -108,7 +109,7 @@ export default async function HomeRoute({
                     <HomeMap locationValue={country?.value as string} />
                 </div>
     
-                <form action={createReservation} className="w-full md:w-1/3 flex flex-col items-center">
+                <form action={createReservation} className="gap-2 w-full md:w-1/3 flex flex-col items-center">
                     <input type="hidden" name="homeId" value={params.id} />
                     <input type="hidden" name="userId" value={user?.id} />
 
@@ -117,8 +118,8 @@ export default async function HomeRoute({
                     {user?.id ? (
                         <ReservationSubmitButton />
                     ) : (
-                        <Button className="w-full">
-                            <Link href="/api/auth/login">Make a Reservation</Link>
+                        <Button className="pt-2 w-full">
+                            <LoginLink className="w-full">Reserve</LoginLink>
                         </Button>
                     )}
                 </form>

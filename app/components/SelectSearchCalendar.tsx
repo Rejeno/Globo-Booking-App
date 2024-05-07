@@ -7,10 +7,10 @@ import { eachDayOfInterval } from "date-fns";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
 
-export function SelectCalender({
-    reservation,
+export function SelectSearchCalender({
+    search,
     }: {
-    reservation:
+    search:
         | {
             startDate: Date;
             endDate: Date;
@@ -26,7 +26,7 @@ export function SelectCalender({
     ]);
 
     let disabledDates: Date[] = [];
-    reservation?.forEach((reservationItem) => {
+    search?.forEach((reservationItem) => {
         const dateRange = eachDayOfInterval({
         start: new Date(reservationItem.startDate),
         end: new Date(reservationItem.endDate),

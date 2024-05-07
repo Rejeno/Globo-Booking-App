@@ -11,6 +11,11 @@ const nextConfig = {
                 hostname: "zsjmcggrnqxrdypgvfug.supabase.co",
                 protocol: "https",
                 port: "",
+            },
+            {
+                hostname: "icons8.com",
+                protocol: "https",
+                port: "",
             }
         ],
     },

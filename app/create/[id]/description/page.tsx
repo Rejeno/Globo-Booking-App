@@ -1,13 +1,34 @@
-import { CreateDescription } from "@/app/action"
-import { Counter } from "@/app/components/Counter"
-import { CreationBottomBar } from "@/app/components/CreationBottomBar"
-import { Card, CardHeader } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+'use client'
+
+import { CreateDescription } from "@/app/action";
+import { Counter } from "@/app/components/Counter";
+import { CreationBottomBar } from "@/app/components/CreationBottomBar";
+import { Card, CardHeader } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from 'react';
 
 export default function DescriptionPage({params}: {params: {id: string}}) {
-    return(
+    const [image, setImage] = useState<File | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            setImage(file);
+            const url = URL.createObjectURL(file);
+            setImageUrl(url);
+        }
+    };
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault(); 
+        const formData = new FormData(event.currentTarget);
+        await CreateDescription(formData);
+    };
+
+    return (
         <>
             <div className="w-3/5 mx-auto">
                 <h2 className="text-3xl font-semibold tracking-tight transition-colors text-center">
@@ -15,14 +36,14 @@ export default function DescriptionPage({params}: {params: {id: string}}) {
                 </h2>
             </div>
 
-            <form action={CreateDescription}>
+            <form onSubmit={handleSubmit}>
                 <input type="hidden" name="homeId" value={params.id} />
                 <div className="mx-auto w-3/5 mt-10 flex flex-col gap-y-5 mb-36">
                     <div className="flex flex-col gap-y-2">
-                    <Label className="font-semibold">
-                        Title
-                    </Label>
-                    <Input name="title" type="text" required placeholder="Short and simple..." />
+                        <Label className="font-semibold">
+                            Title
+                        </Label>
+                        <Input name="title" type="text" required placeholder="Short and simple..." />
                     </div>
 
                     <div className="flex flex-col gap-y-2">
@@ -36,15 +57,15 @@ export default function DescriptionPage({params}: {params: {id: string}}) {
                         <Label className="font-semibold">
                             Price
                         </Label>
-                        <Input name="price" type="number" required placeholder="Price per Night in Peso"
-                        min={100}/>
+                        <Input name="price" type="number" required placeholder="Price per Night $" min={100} />
                     </div>
 
                     <div className="flex flex-col gap-y-2">
                         <Label className="font-semibold">
                             Image
                         </Label>
-                        <Input name="image" type="file" required placeholder="Please upload images of your home" />
+                        <Input name="image" type="file" required onChange={handleImageChange} />
+                        {imageUrl && <img src={imageUrl} alt="Uploaded" className="mt-2 max-w-xs" />}
                     </div>
 
                     <Card>
@@ -58,7 +79,7 @@ export default function DescriptionPage({params}: {params: {id: string}}) {
                                         How many guests can you accommodate?
                                     </p>
                                 </div>
-                                <Counter name="guests"/>
+                                <Counter name="guests" />
                             </div>
 
                             <div className="flex items-center justify-between ">
@@ -70,7 +91,7 @@ export default function DescriptionPage({params}: {params: {id: string}}) {
                                         How many rooms do you have?
                                     </p>
                                 </div>
-                                <Counter name="rooms"/>
+                                <Counter name="rooms" />
                             </div>
                             <div className="flex items-center justify-between ">
                                 <div className="flex flex-col">
@@ -81,16 +102,13 @@ export default function DescriptionPage({params}: {params: {id: string}}) {
                                         How many bathrooms do you have?
                                     </p>
                                 </div>
-                                <Counter name="bathrooms"/>
+                                <Counter name="bathrooms" />
                             </div>
-
                         </CardHeader>
                     </Card>
-
                 </div>
-
                 <CreationBottomBar />
             </form>
         </>
-    )
+    );
 }

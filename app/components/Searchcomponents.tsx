@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useCountries } from "../lib/getCountries";
 import { Counter } from "./Counter";
 import { HomeMap } from "./HomeMap";
+import { SelectSearchCalender } from "./SelectSearchCalendar";
 import { CreationSubmit } from "./Submitbuttons";
 
 export function SearchModalComponent(){
@@ -31,7 +32,7 @@ export function SearchModalComponent(){
     return(
         <Dialog>
             <DialogTrigger asChild>
-            <div className="flex items-center justify-between rounded-full py-1 sm:py-2 px-2 sm:px-4 border cursor-pointer">
+            <div className="flex items-center justify-between rounded-full py-1 sm:py-2 px-2 sm:px-4 border hover:shadow-md dark:hover:shadow-white cursor-pointer">
                 <div className="text-bold flex flex-1 justify-center divide-x sm:justify-start">
                     <p className="text-xs sm:text-base px-2 ">Anywhere</p>
                     <p className="text-xs sm:text-base px-2 ">Any Week</p>
@@ -40,7 +41,6 @@ export function SearchModalComponent(){
                 <Search className="bg-primary text-white p-1 h-6 sm:h-8 w-6 sm:w-8 rounded-full" />
             </div>
         </DialogTrigger>
-
             <DialogContent className="sm:max-w-[425px] ">
                 <form className="gap-4 flex flex-col">
                     <input type="hidden" name="country" value={locationValue} />
@@ -78,16 +78,13 @@ export function SearchModalComponent(){
                     ): (
                         <>
                             <DialogHeader>
-                                <DialogTitle>
-                                    Select all the info you need
+                                <DialogTitle className="-mt-2">
+                                Please provide all the information
                                 </DialogTitle>
-                                <DialogDescription>
-                                    Please provide all the information
-                                </DialogDescription>
                             </DialogHeader>
 
                             <Card>
-                            <CardHeader className="flex flex-col gap-y-5">
+                            <CardHeader className="flex flex-col gap-y-2 -mt-2">
                             <div className="flex items-center justify-between ">
                                 <div className="flex flex-col">
                                     <h3 className="underline font-medium font-semibold">
@@ -111,25 +108,20 @@ export function SearchModalComponent(){
                                 </div>
                                 <Counter name="rooms"/>
                             </div>
-                            <div className="flex items-center justify-between ">
-                                <div className="flex flex-col">
+                            <div className="flex flex-col">
                                     <h3 className="underline font-medium font-semibold">
-                                        Bathrooms
+                                        Date
                                     </h3>
                                     <p className="text-muted-foreground text-sm">
-                                        How many bathrooms do you prefer to have?
+                                        When are you planning to go?
                                     </p>
                                 </div>
-                                <Counter name="bathrooms"/>
-                            </div>
-
+                            <SelectSearchCalender/>
                         </CardHeader>
                     </Card>
 
                         </>
                     )}
-
-
                     <DialogFooter>
                         <SubmitButtonLocal />
                     </DialogFooter>

@@ -10,7 +10,6 @@ import { useState } from "react";
 import { useCountries } from "../lib/getCountries";
 import { Counter } from "./Counter";
 import { HomeMap } from "./HomeMap";
-import { SelectSearchCalender } from "./SelectSearchCalendar";
 import { CreationSubmit } from "./Submitbuttons";
 
 export function SearchModalComponent(){
@@ -116,7 +115,6 @@ export function SearchModalComponent(){
                                         When are you planning to go?
                                     </p>
                                 </div>
-                            <SelectSearchCalender/>
                         </CardHeader>
                     </Card>
 

@@ -19,6 +19,13 @@ export async function UserNav (){
         <div className="mt-1">
             <ModeToggle/>
         </div>
+
+        <a href="/my-reservations">
+        <div className="mt-1 flex items-center justify-between hidden md:block text-sm hover:shadow-md dark:hover:shadow-white font-semibold py-3 px-4 rounded-full  transition cursor-pointer">
+            My Reservations
+        </div>
+        </a>
+
         <div>
         <DropdownMenu>
             <DropdownMenuTrigger>

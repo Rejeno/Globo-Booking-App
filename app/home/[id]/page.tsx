@@ -13,6 +13,8 @@ import Image from "next/image";
 
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 
+import { format } from 'date-fns';
+
 async function getData(homeid: string) {
     noStore();
     const data = await prisma.home.findUnique({
@@ -39,6 +41,7 @@ async function getData(homeid: string) {
                     profileImage: true,
                     firstName: true,
                     email: true,
+                    createdAt: true,
                     },
                 },
             },
@@ -58,6 +61,7 @@ export default async function HomeRoute({
     const { getUser } = getKindeServerSession();
     const user = await getUser();
 
+    const formattedDate = data?.User?.createdAt ? format(new Date(data.User.createdAt), 'MMMM yyyy') : null;
     return (
         <div className="w-full md:w-[75%] mx-auto mt-32 mb-12 px-4 md:px-0">
             <h1 className="font-medium text-2xl mb-5">{data?.title}</h1>
@@ -92,7 +96,7 @@ export default async function HomeRoute({
                         <div className="flex flex-col ml-4">
                             <h3 className="font-medium">Hosted by {data?.User?.firstName}</h3>
                             <p className="text-sm text-muted-foreground">{data?.User?.email}</p>
-                            <p className="text-sm text-muted-foreground">Host since 2015</p>
+                            <p className="text-sm text-muted-foreground">Host since {formattedDate}</p>
                         </div>
                     </div>
     

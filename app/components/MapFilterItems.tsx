@@ -23,7 +23,7 @@ export function MapFilterItems () {
     );
 
     return(
-        <div className="dark:text-white  container mx-auto px-5 lg:px-1 justify-between py-5 flex gap-x-10 mt-24 w-full overflow-x-scroll no-scrollbar">
+        <div className="mt-2 dark:text-white  container mx-auto px-5 lg:px-1 justify-between py-5 flex gap-x-10 mt-24 w-full overflow-x-scroll no-scrollbar">
                 {categoryItems.map((item) => (
                     <Link key={item.id} href={
                         pathName + "?" + createQueryString('filter', item.name)}

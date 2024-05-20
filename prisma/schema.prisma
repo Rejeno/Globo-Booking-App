@@ -21,6 +21,8 @@ model User {
   firstName    String
   lastName     String
   profileImage String?
+  createdAt    DateTime @default(now())
+
   Home         Home[]
   Favorite     Favorite[]
   Reservation  Reservation[]
@@ -75,4 +77,3 @@ model Reservation {
   homeId String?
 }
 
-  

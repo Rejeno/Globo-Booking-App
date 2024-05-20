@@ -15,7 +15,7 @@ export default function StructureRoute({params}: {params: {id: string}}) {
 
             <form action={createCategoryPage}>
 
-                <input type="hidden" name="homeId" value={params.id} />
+                <input required type="hidden" name="homeId" value={params.id} />
 
                 <SelectCategory />
 

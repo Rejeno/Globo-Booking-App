@@ -167,5 +167,5 @@ export async function createLocation(formData: FormData) {
                 },
                 });
             
-                return redirect("/");
+                return redirect("/my-reservations");
             }

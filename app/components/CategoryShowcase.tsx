@@ -5,7 +5,7 @@ export function CategoryShowcase({ categoryName }: { categoryName: string }) {
     const category = categoryItems.find((item) => item.name === categoryName);
 
     return (
-        <div className="flex items-center">
+        <div className="mt-2 flex items-center">
         <Image
             src={category?.imageUrl as string}
             alt="Category image"

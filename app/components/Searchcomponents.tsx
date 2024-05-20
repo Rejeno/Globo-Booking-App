@@ -62,7 +62,7 @@ export function SearchModalComponent() {
                         <div className="text-bold flex flex-1 justify-center divide-x sm:justify-start">
                             <p className="text-xs sm:text-base px-2 ">Anywhere</p>
                             <p className="text-xs sm:text-base px-2 ">Any Week</p>
-                            <p className="font-semibold text-xs sm:text-base px-2">Add Guests</p>
+                            <p className="font-bold text-xs sm:text-base px-2">Add Guests</p>
                         </div>
                         <Search className="bg-primary text-white p-1 h-6 sm:h-8 w-6 sm:w-8 rounded-full" />
                     </div>
@@ -129,27 +129,25 @@ export function SearchModalComponent() {
                                                     Rooms
                                                 </h3>
                                                 <p className="text-muted-foreground text-sm">
-                                                    How many rooms do you need?
+                                                    How many rooms do you need? 
                                                 </p>
                                             </div>
                                             <Counter name="rooms" value={rooms} onChange={setRooms} />
                                         </div>
-                                        <div className="flex flex-col -mb-4">
+                                        <div className="flex flex-col">
                                             <h3 className="underline font-medium font-semibold">
                                                 Date
                                             </h3>
                                             <p className="text-muted-foreground text-sm mb-2">
                                                 When are you planning to go?
                                             </p>
-                                            <div className='-ml-2'>
                                             <SelectSearchCalender />
-                                            </div>
                                         </div>
                                     </CardHeader>
                                 </Card>
                             </>
                         )}
-                        <DialogFooter className='-mb-3'>
+                        <DialogFooter className='-mt-2'>
                             <SubmitButtonLocal />
                         </DialogFooter>
                     </form>

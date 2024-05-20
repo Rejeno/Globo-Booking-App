@@ -15,7 +15,8 @@ export function SelectSearchCalender() {
         },
     ]);
     return (
-        <DateRange
+        <div className="w-32 sm:w-auto">
+            <DateRange
             date={new Date()}
             showDateDisplay={false}
             rangeColors={["#2BB673"]}
@@ -24,5 +25,6 @@ export function SelectSearchCalender() {
             minDate={new Date()}
             direction="vertical"
         />
+        </div>
     )
 }

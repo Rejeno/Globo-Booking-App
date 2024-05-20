@@ -48,7 +48,7 @@ export function SearchModalComponent() {
                     Next
                 </Button>
             );
-        } else if (step === 2) {
+        } else if (step === 2 ) {
             return <CreationSubmit />;
         }
     }
@@ -147,7 +147,7 @@ export function SearchModalComponent() {
                                 </Card>
                             </>
                         )}
-                        <DialogFooter className='-mt-2'>
+                        <DialogFooter className='-mt-2 -mb-2'>
                             <SubmitButtonLocal />
                         </DialogFooter>
                     </form>

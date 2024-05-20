@@ -49,6 +49,7 @@ export function SelectCalender({
         <DateRange
             date={new Date()}
             showDateDisplay={false}
+            editableDateInputs={true}
             rangeColors={["#2BB673"]}
             ranges={state}
             onChange={(item) => setState([item.selection] as any)}

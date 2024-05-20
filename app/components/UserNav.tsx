@@ -36,7 +36,7 @@ export async function UserNav (){
                     src={
                     user?.picture ?? "https://jeffjbutler.com/wp-content/uploads/2018/01/default-user.png"
                 }
-                alt="Image of the User" className="rounded-full h-8 w-8 "/>
+                alt="Image of the User" className="hidden md:block rounded-full h-8 w-8 "/>
             </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-[200px]">

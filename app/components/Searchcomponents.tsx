@@ -134,20 +134,22 @@ export function SearchModalComponent() {
                                             </div>
                                             <Counter name="rooms" value={rooms} onChange={setRooms} />
                                         </div>
-                                        <div className="flex flex-col">
+                                        <div className="flex flex-col -mb-4">
                                             <h3 className="underline font-medium font-semibold">
                                                 Date
                                             </h3>
                                             <p className="text-muted-foreground text-sm mb-2">
                                                 When are you planning to go?
                                             </p>
+                                            <div className='-ml-2'>
                                             <SelectSearchCalender />
+                                            </div>
                                         </div>
                                     </CardHeader>
                                 </Card>
                             </>
                         )}
-                        <DialogFooter>
+                        <DialogFooter className='-mb-3'>
                             <SubmitButtonLocal />
                         </DialogFooter>
                     </form>

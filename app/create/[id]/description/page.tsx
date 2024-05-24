@@ -74,7 +74,7 @@ export default function DescriptionPage({ params }: { params: { id: string } }) 
                         <Label className="font-semibold">
                             Price
                         </Label>
-                        <Input name="price" type="number" required placeholder="Price per Night $" min={100} />
+                        <Input name="price" type="number" required placeholder="Price per Night $" min={10} />
                     </div>
 
                     <div className="flex flex-col gap-y-2">

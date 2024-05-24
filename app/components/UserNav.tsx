@@ -83,6 +83,11 @@ export async function UserNav (){
                 ): (
                 <>
                     <DropdownMenuItem>
+                    <Link href="/" className="w-full">
+                        Home
+                    </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
                         <RegisterLink className="w-full">Register</RegisterLink>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
